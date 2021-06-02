@@ -42,11 +42,11 @@ public class SendDataFragment extends Fragment {
         sendDataViewModel =
                 ViewModelProviders.of(this).get(SendDataViewModel.class);
         View root = inflater.inflate(R.layout.senddata_frag_layout, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
+//        final TextView textView = root.findViewById(R.id.text_notifications);
         sendDataViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+//                textView.setText(s);
             }
         });
         return root;

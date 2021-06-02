@@ -40,11 +40,11 @@ public class CameraFragment extends Fragment {
         cameraViewModel =
                 ViewModelProviders.of(this).get(CameraViewModel.class);
         View root = inflater.inflate(R.layout.camera_frag_layout, container, false);
-        final TextView textView = root.findViewById(R.id.title_tv);
+//        final TextView textView = root.findViewById(R.id.title_tv);
         cameraViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+//                textView.setText(s);
             }
         });
         return root;

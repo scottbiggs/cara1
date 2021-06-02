@@ -50,11 +50,11 @@ public class LoginFragment extends Fragment {
         loginViewModel =
                 ViewModelProviders.of(this).get(LoginViewModel.class);
         View root = inflater.inflate(R.layout.login_frag_layout, container, false);
-        final TextView textView = root.findViewById(R.id.title_tv);
+//        final TextView textView = root.findViewById(R.id.title_tv);
         loginViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+//                textView.setText(s);
             }
         });
         return root;
