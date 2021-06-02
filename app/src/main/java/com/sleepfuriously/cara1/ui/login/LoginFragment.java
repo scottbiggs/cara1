@@ -1,4 +1,4 @@
-package com.sleepfuriously.cara1.ui.home;
+package com.sleepfuriously.cara1.ui.login;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -17,7 +17,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.sleepfuriously.cara1.MainActivity;
 import com.sleepfuriously.cara1.R;
 
 import java.util.Objects;
@@ -25,19 +24,19 @@ import java.util.Objects;
 /**
  * The first Fragment the user user sees.
  */
-public class HomeFragment extends Fragment {
+public class LoginFragment extends Fragment {
 
     //-------------------------
     //  constants
     //-------------------------
 
-    private static final String TAG = HomeFragment.class.getSimpleName();
+    private static final String TAG = LoginFragment.class.getSimpleName();
 
     //-------------------------
     //  data
     //-------------------------
 
-    private HomeViewModel homeViewModel;
+    private LoginViewModel loginViewModel;
 
     private EditText mUserEt;
     private EditText mPassEt;
@@ -48,11 +47,11 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        loginViewModel =
+                ViewModelProviders.of(this).get(LoginViewModel.class);
+        View root = inflater.inflate(R.layout.login_frag_layout, container, false);
         final TextView textView = root.findViewById(R.id.title_tv);
-        homeViewModel.getText().observe(this, new Observer<String>() {
+        loginViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
@@ -75,7 +74,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (goodInput()) {
-                    NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_navigation_home_to_navigation_dashboard);
+//                    NavHostFragment.findNavController(LoginFragment.this).popBackStack();   // don't want to go back
+                    NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_navigation_home_to_navigation_camera);
                 }
                 else {
                     Toast.makeText(requireContext(), "Please supply a user name and a password", Toast.LENGTH_LONG).show();
