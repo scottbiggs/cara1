@@ -20,6 +20,10 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.sleepfuriously.cara1.R;
 
+/**
+ * This Fragment displays what the camera sees and lets the user take
+ * a picture.
+ */
 public class CameraFragment extends Fragment {
 
     //-------------------------
